@@ -41,28 +41,25 @@ export default function useGameOfRubrik() {
       .fill([...clickedPosition])
       .map((arr) => JSON.parse(JSON.stringify(arr)));
 
-    // left from free block
-    leftFromFreeBlock[1] += 1;
-    if (leftFromFreeBlock.toString() === freeQuaderPosition.toString()) {
+    if (isBrickMovable()) {
       switchPostion();
     }
 
-    // top from free block
-    topFromFreeBlock[0] += 1;
-    if (topFromFreeBlock.toString() === freeQuaderPosition.toString()) {
-      switchPostion();
-    }
+    function isBrickMovable() {
+      leftFromFreeBlock[1] += 1;
+      topFromFreeBlock[0] += 1;
+      aboveFromFreeBlock[0] -= 1;
+      rightFromFreeBlock[1] -= 1;
 
-    // right from free block
-    rightFromFreeBlock[1] -= 1;
-    if (rightFromFreeBlock.toString() === freeQuaderPosition.toString()) {
-      switchPostion();
-    }
-
-    // right from free block
-    aboveFromFreeBlock[0] -= 1;
-    if (aboveFromFreeBlock.toString() === freeQuaderPosition.toString()) {
-      switchPostion();
+      const positions = [
+        leftFromFreeBlock,
+        topFromFreeBlock,
+        rightFromFreeBlock,
+        aboveFromFreeBlock,
+      ];
+      return positions.some(
+        (position) => position.toString() === freeQuaderPosition.toString()
+      );
     }
 
     function switchPostion() {
