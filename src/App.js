@@ -21,11 +21,14 @@ export default function App() {
       <h2>Rebuild this square:</h2>
       <div className="gameContainer">
         <RebuildThisGameBoard matrix={matrix} hitMatrix={hitMatrix} />
+        {isGameFinish && (
+          <SuccessMessage
+            resetGame={resetGame}
+            brickMoveCount={brickMoveCount}
+          />
+        )}
         <GameBoard matrix={matrix} changePosition={changePosition} />
       </div>
-      {isGameFinish && (
-        <SuccessMessage resetGame={resetGame} brickMoveCount={brickMoveCount} />
-      )}
     </div>
   );
 }
