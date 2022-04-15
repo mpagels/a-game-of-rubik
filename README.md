@@ -4,6 +4,8 @@ This is a small game I developed after seeing [this video](https://i.imgur.com/z
 
 > Try to rebuild the 3x3 square by moving blocks in the bigger 5x5 square.
 
+[Play the game](https://a-game-of-rubik.vercel.app/)
+
 ![game](docs/rubrik.png)
 
 ## Available Scripts
