@@ -1,7 +1,7 @@
 import "./styles.css";
 
 import GameBoard from "./components/GameBoard";
-import SucessMessage from "./components/SucessMessage";
+import SuccessMessage from "./components/SuccessMessage";
 import RebuildThisGameBoard from "./components/RebuildThisGameBoard";
 
 import useGameOfRubrik from "./hooks/useGameOfRubrik";
@@ -24,7 +24,7 @@ export default function App() {
         <GameBoard matrix={matrix} changePosition={changePosition} />
       </div>
       {isGameFinish && (
-        <SucessMessage resetGame={resetGame} brickMoveCount={brickMoveCount} />
+        <SuccessMessage resetGame={resetGame} brickMoveCount={brickMoveCount} />
       )}
     </div>
   );

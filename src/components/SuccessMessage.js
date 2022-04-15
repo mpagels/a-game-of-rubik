@@ -1,4 +1,4 @@
-export default function SucessMessage({ brickMoveCount, resetGame }) {
+export default function SuccessMessage({ brickMoveCount, resetGame }) {
   return (
     <>
       <h3>
