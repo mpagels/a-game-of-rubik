@@ -20,6 +20,10 @@
 }
 
 .hitBoard {
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
   display: grid;
   grid-template-columns: repeat(3, 35px);
   grid-template-rows: repeat(3, 35px);
@@ -28,7 +32,17 @@
   width: 111px;
 }
 
+.hitBoardFull {
+  display: grid;
+  grid-template-columns: repeat(5, 35px);
+  grid-template-rows: repeat(5, 35px);
+  background-color: black;
+  gap: 3px;
+  width: 187px;
+}
+
 .hitBoardWrapper {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -37,4 +51,8 @@
 .hitBrick {
   width: 35px;
   height: 35px;
+}
+
+.shadowBrick {
+  background-color: rgb(169, 176, 182);
 }

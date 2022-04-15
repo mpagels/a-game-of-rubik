@@ -75,6 +75,13 @@ export default function App() {
       <h2>Rebuild this square:</h2>
       <div className="gameContainer">
         <div className="hitBoardWrapper">
+          <div className="hitBoardFull">
+            {arr.map((row, rowIndex) =>
+              row.map((column, ColumnIndex) => (
+                <div key={ColumnIndex} className="shadowBrick"></div>
+              ))
+            )}
+          </div>
           <div className="hitBoard">
             {hitArr.map((row, rowIndex) =>
               row.map((column, ColumnIndex) => (
