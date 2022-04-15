@@ -2,6 +2,7 @@ import "./styles.css";
 
 import shuffle, { colorBrickArray } from "./utils/rubrikGenerator";
 import { useState } from "react";
+import GameBoard from "./components/GameBoard";
 
 export default function App() {
   const [brickMoveCount, setBrickMoveCount] = useState(0);
@@ -112,17 +113,7 @@ export default function App() {
             )}
           </div>
         </div>
-        <div className="gameBoard">
-          {matrix.map((row, rowIndex) =>
-            row.map((column, ColumnIndex) => (
-              <div
-                onClick={() => changePosition([rowIndex, ColumnIndex])}
-                key={ColumnIndex}
-                style={{ backgroundColor: column }}
-              ></div>
-            ))
-          )}
-        </div>
+        <GameBoard matrix={matrix} changePosition={changePosition} />
       </div>
       {isGameFinish && (
         <>
