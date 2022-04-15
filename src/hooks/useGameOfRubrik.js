@@ -10,12 +10,15 @@ export default function useGameOfRubrik() {
       true
     )
   );
-  let freeQuaderPosition;
 
-  for (let column = 0; column < matrix.length; column++) {
-    for (let row = 0; row < matrix[column].length; row++) {
-      if (matrix[column][row] === "") {
-        freeQuaderPosition = [column, row];
+  const freeQuaderPosition = findFreeQuaderPosition();
+
+  function findFreeQuaderPosition() {
+    for (let column = 0; column < matrix.length; column++) {
+      for (let row = 0; row < matrix[column].length; row++) {
+        if (matrix[column][row] === "") {
+          return [column, row];
+        }
       }
     }
   }
