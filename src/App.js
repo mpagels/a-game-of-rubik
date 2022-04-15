@@ -3,6 +3,7 @@ import "./styles.css";
 import shuffle, { colorBrickArray } from "./utils/rubrikGenerator";
 import { useState } from "react";
 import GameBoard from "./components/GameBoard";
+import SucessMessage from "./components/SucessMessage";
 
 export default function App() {
   const [brickMoveCount, setBrickMoveCount] = useState(0);
@@ -116,13 +117,7 @@ export default function App() {
         <GameBoard matrix={matrix} changePosition={changePosition} />
       </div>
       {isGameFinish && (
-        <>
-          <h3>
-            You did it! <br />
-            You moved {brickMoveCount} times a brick.
-          </h3>
-          <button onClick={resetGame}>Restart game</button>
-        </>
+        <SucessMessage resetGame={resetGame} brickMoveCount={brickMoveCount} />
       )}
     </div>
   );
