@@ -1,4 +1,4 @@
-# A game of rubrik
+# A game of rubik
 
 This is a small game I developed after seeing [this video](https://i.imgur.com/zzGT2J5.gifv) on Reddit.
 

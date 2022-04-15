@@ -17,7 +17,7 @@ export default function App() {
   } = useGameOfRubrik();
   return (
     <div className="App">
-      <h1>A game of rubrik</h1>
+      <h1>A game of rubik</h1>
       <h2>Rebuild this square:</h2>
       <div className="gameContainer">
         <RebuildThisGameBoard matrix={matrix} hitMatrix={hitMatrix} />
