@@ -88,7 +88,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>A game of rubric</h1>
+      <h1>A game of rubrik</h1>
 
       <h2>Rebuild this square:</h2>
       <div className="gameContainer">
