@@ -1,0 +1,35 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.gameBoard {
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  grid-template-rows: repeat(5, 50px);
+  background-color: black;
+  gap: 3px;
+  width: 262px;
+}
+
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.hitBoard {
+  display: grid;
+  grid-template-columns: repeat(3, 50px);
+  grid-template-rows: repeat(3, 50px);
+  background-color: black;
+  gap: 3px;
+  width: 152px;
+}
+
+.hitBoardWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
