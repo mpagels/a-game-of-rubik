@@ -4,6 +4,7 @@ import shuffle, { colorBrickArray } from "./utils/rubrikGenerator";
 import { useState } from "react";
 import GameBoard from "./components/GameBoard";
 import SucessMessage from "./components/SucessMessage";
+import RebuildThisGameBoard from "./components/RebuildThisGameBoard";
 
 export default function App() {
   const [brickMoveCount, setBrickMoveCount] = useState(0);
@@ -94,26 +95,7 @@ export default function App() {
 
       <h2>Rebuild this square:</h2>
       <div className="gameContainer">
-        <div className="hitBoardWrapper">
-          <div className="hitBoardFull">
-            {matrix.map((row, rowIndex) =>
-              row.map((column, ColumnIndex) => (
-                <div key={ColumnIndex} className="shadowBrick"></div>
-              ))
-            )}
-          </div>
-          <div className="hitBoard">
-            {hitMatrix.map((row, rowIndex) =>
-              row.map((column, ColumnIndex) => (
-                <div
-                  key={ColumnIndex}
-                  className="hitBrick"
-                  style={{ backgroundColor: column }}
-                ></div>
-              ))
-            )}
-          </div>
-        </div>
+        <RebuildThisGameBoard matrix={matrix} hitMatrix={hitMatrix} />
         <GameBoard matrix={matrix} changePosition={changePosition} />
       </div>
       {isGameFinish && (
