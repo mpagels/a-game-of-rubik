@@ -1,19 +1,34 @@
 import "./styles.css";
 
-import { arr, hitArr } from "./utils/rubrikGenerator";
+import shuffle, { colorBrickArray } from "./utils/rubrikGenerator";
 import { useState } from "react";
 
 export default function App() {
-  const [matrix, setMatrix] = useState(arr);
-
+  const [matrix, setMatrix] = useState(() => shuffle(colorBrickArray));
+  const [hitMatrix, setHitMatrix] = useState(() =>
+    shuffle(
+      colorBrickArray.filter((color) => color !== ""),
+      true
+    )
+  );
   let freeQuaderPosition;
-
+  console.log(matrix);
   for (let column = 0; column < matrix.length; column++) {
     for (let row = 0; row < matrix[column].length; row++) {
       if (matrix[column][row] === "") {
         freeQuaderPosition = [column, row];
       }
     }
+  }
+
+  function resetGame() {
+    setMatrix(shuffle(colorBrickArray));
+    setHitMatrix(
+      shuffle(
+        colorBrickArray.filter((color) => color !== ""),
+        true
+      )
+    );
   }
 
   function changePosition(clickedPosition) {
@@ -65,25 +80,26 @@ export default function App() {
     ...matrix[3].slice(1, 4),
   ];
 
-  const hitBoardHitBox = hitArr.flat();
+  const hitBoardHitBox = hitMatrix.flat();
   const isGameFinish = matrixHitBox.toString() === hitBoardHitBox.toString();
 
   return (
     <div className="App">
+      <button onClick={resetGame}>Reset game</button>
       <h1>A game of rubric</h1>
 
       <h2>Rebuild this square:</h2>
       <div className="gameContainer">
         <div className="hitBoardWrapper">
           <div className="hitBoardFull">
-            {arr.map((row, rowIndex) =>
+            {matrix.map((row, rowIndex) =>
               row.map((column, ColumnIndex) => (
                 <div key={ColumnIndex} className="shadowBrick"></div>
               ))
             )}
           </div>
           <div className="hitBoard">
-            {hitArr.map((row, rowIndex) =>
+            {hitMatrix.map((row, rowIndex) =>
               row.map((column, ColumnIndex) => (
                 <div
                   key={ColumnIndex}

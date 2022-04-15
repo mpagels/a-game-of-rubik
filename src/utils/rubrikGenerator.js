@@ -1,4 +1,4 @@
-function shuffle(array, isHitBoard = false) {
+export default function shuffle(array, isHitBoard = false) {
   const arr = [...array];
   let currentIndex = array.length,
     randomIndex;
@@ -28,7 +28,7 @@ function shuffle(array, isHitBoard = false) {
 }
 
 // Used like so
-const array = [
+export const colorBrickArray = [
   "#009b48",
   "",
   "#009b48",
@@ -55,8 +55,10 @@ const array = [
   "#ff5800",
   "#ff5800",
 ];
-export const arr = shuffle(array);
+
+/* export const arr = shuffle(array);
 export const hitArr = shuffle(
   array.filter((color) => color !== ""),
   true
 );
+ */
