@@ -4,7 +4,7 @@ import GameBoard from "./components/GameBoard";
 import SuccessMessage from "./components/SuccessMessage";
 import RebuildThisGameBoard from "./components/RebuildThisGameBoard";
 
-import useGameOfRubrik from "./hooks/useGameOfRubrik";
+import useGameOfRubik from "./hooks/useGameOfRubik";
 
 export default function App() {
   const {
@@ -14,7 +14,7 @@ export default function App() {
     changePosition,
     isGameFinish,
     resetGame,
-  } = useGameOfRubrik();
+  } = useGameOfRubik();
   return (
     <div className="App">
       <h1>A game of rubik</h1>

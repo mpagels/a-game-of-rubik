@@ -6,7 +6,7 @@ This is a small game I developed after seeing [this video](https://i.imgur.com/z
 
 [Play the game](https://a-game-of-rubik.vercel.app/)
 
-![game](docs/rubrik.png)
+![game](docs/rubik.png)
 
 ## Available Scripts
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import shuffle, { colorBrickArray } from "../utils/rubrikGenerator";
+import shuffle, { colorBrickArray } from "../utils/rubikGenerator";
 
-export default function useGameOfRubrik() {
+export default function useGameOfRubik() {
   const [brickMoveCount, setBrickMoveCount] = useState(0);
   const [matrix, setMatrix] = useState(() => shuffle(colorBrickArray));
   const [hitMatrix, setHitMatrix] = useState(() =>
