@@ -12,6 +12,7 @@ export default function useGameOfRubrik() {
   );
 
   const freeQuaderPosition = findFreeQuaderPosition();
+  const isGameFinish = checkIsGameFinished();
 
   function findFreeQuaderPosition() {
     for (let column = 0; column < matrix.length; column++) {
@@ -75,13 +76,15 @@ export default function useGameOfRubrik() {
     }
   }
 
-  const matrixHitBox = [
-    ...matrix[1].slice(1, 4),
-    ...matrix[2].slice(1, 4),
-    ...matrix[3].slice(1, 4),
-  ];
+  function checkIsGameFinished() {
+    const matrixHitBox = [
+      ...matrix[1].slice(1, 4),
+      ...matrix[2].slice(1, 4),
+      ...matrix[3].slice(1, 4),
+    ];
 
-  const isGameFinish = matrixHitBox.toString() === hitMatrix.flat().toString();
+    return matrixHitBox.toString() === hitMatrix.flat().toString();
+  }
 
   return {
     matrix,
