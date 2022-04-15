@@ -80,6 +80,7 @@ export default function App() {
               row.map((column, ColumnIndex) => (
                 <div
                   key={ColumnIndex}
+                  className="hitBrick"
                   style={{ backgroundColor: column }}
                 ></div>
               ))
