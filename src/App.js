@@ -4,6 +4,7 @@ import shuffle, { colorBrickArray } from "./utils/rubrikGenerator";
 import { useState } from "react";
 
 export default function App() {
+  const [brickMoveCount, setBrickMoveCount] = useState(0);
   const [matrix, setMatrix] = useState(() => shuffle(colorBrickArray));
   const [hitMatrix, setHitMatrix] = useState(() =>
     shuffle(
@@ -22,6 +23,7 @@ export default function App() {
   }
 
   function resetGame() {
+    setBrickMoveCount(0);
     setMatrix(shuffle(colorBrickArray));
     setHitMatrix(
       shuffle(
@@ -70,6 +72,7 @@ export default function App() {
       const newMatrix = JSON.parse(JSON.stringify(matrix));
       newMatrix[freeQuaderPosition[0]][freeQuaderPosition[1]] = clickedColor;
       newMatrix[clickedPosition[0]][clickedPosition[1]] = "";
+      setBrickMoveCount((count) => count + 1);
       setMatrix(newMatrix);
     }
   }
@@ -85,7 +88,6 @@ export default function App() {
 
   return (
     <div className="App">
-      <button onClick={resetGame}>Reset game</button>
       <h1>A game of rubric</h1>
 
       <h2>Rebuild this square:</h2>
@@ -122,7 +124,15 @@ export default function App() {
           )}
         </div>
       </div>
-      {isGameFinish && <h3>You did it!</h3>}
+      {isGameFinish && (
+        <>
+          <h3>
+            You did it! <br />
+            You moved {brickMoveCount} times a brick.
+          </h3>
+          <button onClick={resetGame}>Restart game</button>
+        </>
+      )}
     </div>
   );
 }
