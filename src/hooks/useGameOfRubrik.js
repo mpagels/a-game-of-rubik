@@ -11,7 +11,7 @@ export default function useGameOfRubrik() {
     )
   );
   let freeQuaderPosition;
-  console.log(matrix);
+
   for (let column = 0; column < matrix.length; column++) {
     for (let row = 0; row < matrix[column].length; row++) {
       if (matrix[column][row] === "") {
