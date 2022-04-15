@@ -45,7 +45,7 @@ export default function useGameOfRubrik() {
       .map((arr) => JSON.parse(JSON.stringify(arr)));
 
     if (isBrickMovable()) {
-      switchPostion();
+      switchPosition();
     }
 
     function isBrickMovable() {
@@ -65,7 +65,7 @@ export default function useGameOfRubrik() {
       );
     }
 
-    function switchPostion() {
+    function switchPosition() {
       const clickedColor = matrix[clickedPosition[0]][clickedPosition[1]];
       const newMatrix = JSON.parse(JSON.stringify(matrix));
       newMatrix[freeQuaderPosition[0]][freeQuaderPosition[1]] = clickedColor;
