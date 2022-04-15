@@ -11,31 +11,10 @@ export default function useGameOfRubrik() {
     )
   );
 
-  const freeQuaderPosition = findFreeQuaderPosition();
   const isGameFinish = checkIsGameFinished();
 
-  function findFreeQuaderPosition() {
-    for (let column = 0; column < matrix.length; column++) {
-      for (let row = 0; row < matrix[column].length; row++) {
-        if (matrix[column][row] === "") {
-          return [column, row];
-        }
-      }
-    }
-  }
-
-  function resetGame() {
-    setBrickMoveCount(0);
-    setMatrix(shuffle(colorBrickArray));
-    setHitMatrix(
-      shuffle(
-        colorBrickArray.filter((color) => color !== ""),
-        true
-      )
-    );
-  }
-
   function changePosition(clickedPosition) {
+    const freeQuaderPosition = findFreeQuaderPosition();
     const [
       leftFromFreeBlock,
       topFromFreeBlock,
@@ -76,6 +55,19 @@ export default function useGameOfRubrik() {
     }
   }
 
+  function resetGame() {
+    setBrickMoveCount(0);
+    setMatrix(shuffle(colorBrickArray));
+    setHitMatrix(
+      shuffle(
+        colorBrickArray.filter((color) => color !== ""),
+        true
+      )
+    );
+  }
+
+  // helper functions
+
   function checkIsGameFinished() {
     const matrixHitBox = [
       ...matrix[1].slice(1, 4),
@@ -84,6 +76,16 @@ export default function useGameOfRubrik() {
     ];
 
     return matrixHitBox.toString() === hitMatrix.flat().toString();
+  }
+
+  function findFreeQuaderPosition() {
+    for (let column = 0; column < matrix.length; column++) {
+      for (let row = 0; row < matrix[column].length; row++) {
+        if (matrix[column][row] === "") {
+          return [column, row];
+        }
+      }
+    }
   }
 
   return {
